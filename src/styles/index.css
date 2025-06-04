@@ -1,3 +1,4 @@
+@import "tailwindcss";
 html, body, #root {
   margin: 0;
   padding: 0;
@@ -9,4 +10,16 @@ html, body, #root {
 
 body::-webkit-scrollbar {
   display: none;
+}
+
+.vt323-regular {
+  font-family: "VT323", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.press-start-2p-regular {
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }

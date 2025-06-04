@@ -1,6 +1,9 @@
 import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Home.css';
+import aboutImg from '../assets/about.png';
+import playerImg from '../assets/player.png';
+import enemyImg from '../assets/enemy.png';
+import styles from '../styles/Home.module.css'; // Importar el CSS directamente
 
 export default function Home() {
   const sectionRef = useRef(null);
@@ -29,40 +32,40 @@ export default function Home() {
   };
 
   return (
-    <div className="container">
-      <header className="hero">
-        <h1 className="title">Royal Dutch Carapace</h1>
-        <button className="btn-start" onClick={handleStartClick}>Start</button>
+    <div className={styles.container}>
+      <header className={styles.hero}>
+        <h1 className={styles.title}>Royal Dutch Carapace</h1>
+        <button className={styles.btnStart} onClick={handleStartClick}>Start</button>
       </header>
 
-      <section ref={sectionRef} className={`section-content ${showSection ? 'slide-in' : 'hidden'}`}>
-        <div className="about-section">
-            <div className="content">
-            <div className="image-wrapper">
-                <img src="/about.png" alt="Gameplay" />
+      <section ref={sectionRef} className={`${styles.sectionContent} ${showSection ? styles.slideIn : styles.hidden}`}>
+        <div className={styles.aboutSection}>
+          <div className={styles.content}>
+            <div className={`${styles.imageWrapper} flex justify-center align-center`}>
+              <img src={aboutImg} alt="Gameplay" />
             </div>
-            <div className="text-content">
-                <h2 className="subtitle">Sobre el juego</h2>
-                <p>
+            <div className={styles.textContent}>
+              <h2 className={styles.subtitle}>Sobre el juego</h2>
+              <p>
                 Pure The Poison es un juego roguelike en 2D ambientado en un mundo devastado por la contaminación. El jugador encarna a Luca, un exterminador de una megacorporación responsable del colapso ecológico global, que debe enfrentar criaturas mutantes y máquinas enloquecidas por la contaminación dinámica. Un juego basado en sensiblería sobre la crisis ecológica, todo dentro de una experiencia desafiante y envolvente.
-                </p>
-                <Link to="/about" className="btn-more">Más</Link>
+              </p>
+              <Link to="/about" className={styles.btnMore}>Más</Link>
             </div>
-            </div>
+          </div>
 
-            <div className="characters">
-            <h2 className="subtitle">Personajes</h2>
-            <div className="character-cards">
-                <div className="card">
-                    <img src="/player.png" alt="Personaje Luca" />
-                </div>
-                <div className="card enemy">
-                    <img src="/enemy.png" alt="Enemigo" />
-                </div>
+          <div className={styles.characters}>
+            <h2 className={styles.subtitle}>Personajes</h2>
+            <div className={styles.characterCards}>
+              <div className={styles.card}>
+                <img src={playerImg} alt="Personaje Luca" />
+              </div>
+              <div className={`${styles.card} ${styles.enemy}`}>
+                <img src={enemyImg} alt="Enemigo" />
+              </div>
             </div>
-            </div>
+          </div>
         </div>
-    </section>
+      </section>
     </div>
   );
 }
