@@ -55,7 +55,7 @@ body::-webkit-scrollbar {
 
 /* Sección principal (hero) */
 .hero {
-  background-image: url('hero-bg.png');
+  background-image: url('./hero-bg.png');
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -192,7 +192,7 @@ body::-webkit-scrollbar {
 
 @media screen and (max-width: 424px){
   .hero{
-    background-image: url('hero-bg-mobile.png');
+    background-image: url('./hero-bg-mobile.png');
   }
   .title{
     font-size: 1.4em;
