@@ -1,3 +1,67 @@
+/* -----------------------------
+   Clases genéricas de oculto y animación
+   ----------------------------- */
+
+/* Se usa para ocultar el elemento: opacidad 0 y desplazado un poco */
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  pointer-events: none;
+}
+
+/* Animación tipo “slideInUp”: de abajo hacia arriba con fade-in */
+@keyframes slideInUpKey {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slideInUp {
+  animation: slideInUpKey 1s ease-out forwards;
+}
+
+/* Animación tipo “fadeInLeft”: desde la izquierda */
+@keyframes fadeInLeftKey {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fadeInLeft {
+  animation: fadeInLeftKey 1s ease-out forwards;
+}
+
+/* Animación tipo “fadeInUp”: fade-in desde abajo */
+@keyframes fadeInUpKey {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  animation: fadeInUpKey 1s ease-out forwards;
+}
+
+
+/* -----------------------------
+   Estilos originales (sin cambios)
+   ----------------------------- */
+
 body {
   background-color: #3b210c;
   font-family: 'Segoe UI', sans-serif;
@@ -8,18 +72,33 @@ body {
   padding: 60px 20px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  gap: 100px;
 }
 
 .aboutContent {
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   max-width: 1100px;
+  width: 90%;
   gap: 40px;
   background-color: #7d5715;
   border-radius: 20px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   padding: 40px;
+}
+
+.aboutContent2 {
+  width: 90%;
+  max-width: 1100px;
+  justify-content: center;
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #7d5715;
+  flex-wrap: wrap;
 }
 
 .imagePreview {
@@ -71,12 +150,74 @@ body {
   background-color: #333;
 }
 
+.card2 {
+  text-align: center;
+  min-width: 250px;
+  width: 40%;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+}
+
+.imageData {
+  width: 250px;
+  margin: 0 auto;
+}
+
+.imageData img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+.description {
+  font-size: 0.9rem;
+  color: white;
+}
+
+.misionSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 100px 10%;
+  background-color: #0f0b05; /* fondo oscuro cálido */
+  color: #facc15; /* amarillo estilo pixel */
+  gap: 2rem;
+}
+
+.misionSection img {
+  width: 250px;
+  max-width: 100%;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.7));
+}
+
+.misionTitle {
+  font-family: "Press Start 2P", system-ui;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.misionDescription {
+  font-size: 1rem;
+  font-family: "VT323", monospace; /* Alternativa retro si quieres variar */
+  line-height: 1.8;
+  max-width: 600px;
+  color: #e7c341;
+  text-align: left;
+}
 
 @media screen and (max-width: 768px) {
   .textSection {
     text-align: center;
   }
-  .textSection p{
+  .textSection p {
     width: 80%;
     margin: 0 auto;
   }
@@ -84,19 +225,33 @@ body {
   .textSection .ctaButton {
     margin: 0 auto;
   }
+
+  .card2 {
+    padding: 0;
+  }
 }
 
-@media screen and (max-width: 425px){
-  .aboutContent{
+@media screen and (max-width: 425px) {
+  .misionSection {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .misionDescription {
+    text-align: center;
+  }
+
+  .aboutContent {
     padding: 10%;
   }
 
-  .title{
+  .title {
     font-size: 2em;
     width: 100%;
   }
 
-  .textSection p{
+  .textSection p {
     font-size: 0.8em;
     width: 100%;
   }

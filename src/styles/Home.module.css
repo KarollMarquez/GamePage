@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 /* Botón principal */
 .btnStart {
   font-family: "Press Start 2P", system-ui;
@@ -10,22 +12,6 @@
   font-size: 1rem;
   cursor: pointer;
   margin-top: 10%;
-}
-
-/* Efecto general de fade */
-.fadeIn {
-  animation: fadeInUp 1s ease-out forwards;
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* Layout general */
@@ -97,6 +83,10 @@ body::-webkit-scrollbar {
   text-decoration: none;
 }
 
+.slideIn {
+  animation: slideIn 0.8s ease-out forwards;
+}
+
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -158,8 +148,15 @@ body::-webkit-scrollbar {
 .characterCards {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 3rem;
   margin-top: 3rem;
+}
+
+.characterCards article{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .characterCards .card {
@@ -169,10 +166,31 @@ body::-webkit-scrollbar {
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 10px #000;
+  height: 100%;
+}
+
+.characterCards .cardInfo{
+  background-color: black;
+  text-align: center;
+  padding: 10px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 200px;
+  height: 100%;
+}
+
+.characterCards .cardInfo h3 {
+  font-family: "Press Start 2P", system-ui;
+  font-size: 1.2rem;
+  margin: 0;
+  font-weight: bold;
 }
 
 .card img {
-  width: 90%;
+  width: 100%;
   height: auto;
   padding: 20px;
 }
@@ -180,7 +198,26 @@ body::-webkit-scrollbar {
   width: 180px;
 }
 
+.footer{
+  text-align: center;
+  font-weight: semibold;
+  padding: 20px;
+}
+
 @media screen and (max-width: 768px) {
+  .characterCards{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .characterCards article{
+    gap: 1.5rem;
+  }
+
+  .characterCards .cardInfo{
+    height: 100%;
+  }
+
   .aboutSection .content{
     flex-direction: column;
     align-items: center;
@@ -192,6 +229,20 @@ body::-webkit-scrollbar {
   }
   .characters{
     margin-top: 5rem;
+  }
+
+  .developerList {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .developerList .textContent {
+    max-width: 80%;
+  }
+
+  .developerList .imageWrapper img {
+    max-width: 100%;
   }
 }
 
@@ -229,3 +280,54 @@ body::-webkit-scrollbar {
     width: 80%;
   }
 }
+
+@media screen and (max-width: 425px){
+  .characterCards article{
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.developers {
+  background: linear-gradient(to bottom, #120800 0%, #050505 100%);
+  padding: 150px 10% 100px;
+  color: white;
+}
+
+.developerList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+
+.developers .subtitle{
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.developerList .textContent {
+  flex: 1;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  width: 20%;
+}
+
+.developerList .textContent p{
+  width: 90%;
+}
+
+.developerList .imageWrapper img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #000;
+}
+
+.developers img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #000;
+}
+
